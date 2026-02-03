@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $id = intval($_POST['delete_id']);
     $sql = "DELETE FROM cuadros WHERE id = $id";
-    $conn->query($sql);
+    $conn->query($sql); 
 } 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_cuadro'])) {
