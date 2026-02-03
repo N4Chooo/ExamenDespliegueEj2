@@ -1,7 +1,7 @@
 services:
   db:
-    image: nafama/mi_pinacoteca:v1
-    container_name: MysqlEx2
+    image: nafama/sqlpinacoteca:v1
+    container_name: sqlpinacoteca
     environment:
       MYSQL_ROOT_PASSWORD: pinacoteca1234
       MYSQL_DATABASE: pinacoteca
@@ -10,20 +10,9 @@ services:
     ports:
       - "3308:3306"
   php:
-    image: nafama/mi_app_pinacoteca:v1
-    container_name: phpEx2
+    image: nafama/pinacoteca:v1
+    container_name: phppinacoteca
     ports:
       - "8082:80"
-    depends_on:
-      - db
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: phpAdminEx2
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: pinacoteca1234
-    ports:
-      - "8081:80"
     depends_on:
       - db
